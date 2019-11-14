@@ -1,7 +1,8 @@
 //your variable declarations here
 public void setup() 
 {
-  //your code here
+  size(500,500);
+  Spaceship ship = new Spaceship();
 }
 public void draw() 
 {
