@@ -2,14 +2,14 @@ class Spaceship extends Floater
 {   
     public Spaceship(){
     	corners = 3;
-    	xCorners = new int[]{-8,8,0};
-    	yCorners = new int[]{-8,-8,0};
+    	xCorners = new int[]{-8,-8,0};
+    	yCorners = new int[]{-8,8,0};
     	myCenterX = width/2;
     	myCenterY = height/2;
     	myColor = color(255);
     	myDirectionX = 0;
     	myDirectionY = 0;
-    	myPointDirection = 0;
+    	myPointDirection = 90;
     }
     public void setCenterX(double x){myCenterX=x;}
     public void setCenterY(double y){myCenterY=y;}
@@ -20,5 +20,6 @@ class Spaceship extends Floater
     public double getCenterY(){return myCenterY;}
     public double getDirX(){return myDirectionX;}
     public double getDirY(){return myDirectionY;}
-
+    public double getPointDir(){return myPointDirection;}
+    
 }
