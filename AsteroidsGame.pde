@@ -1,11 +1,13 @@
 //your variable declarations here
 Spaceship ship;
+Asteroid rock;
 int i = 0;
 public void setup() 
 {
   size(500,500);
   background(0);
   ship = new Spaceship();
+  rock = new Asteroid();
 }
 public void draw() 
 {
@@ -13,6 +15,8 @@ public void draw()
   background(0);
   ship.move();
   ship.show();
+  rock.move();
+  rock.show();
 }
 
 public void keyPressed(){
