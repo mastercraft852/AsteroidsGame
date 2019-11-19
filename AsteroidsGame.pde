@@ -1,13 +1,15 @@
 //your variable declarations here
 Spaceship ship;
-Asteroid rock;
+ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
+ArrayList <Star> dots = new ArrayList <Star>();
 int i = 0;
 public void setup() 
 {
   size(500,500);
   background(0);
   ship = new Spaceship();
-  rock = new Asteroid();
+  for(int i=0;i<(int)(Math.random()*10)+6;i++){rock.add(new Asteroid());}
+  for(int ii=0;i<(int)(Math.random()*20)+9;i++){dots.add(new Star());}
 }
 public void draw() 
 {
@@ -15,8 +17,11 @@ public void draw()
   background(0);
   ship.move();
   ship.show();
-  rock.move();
-  rock.show();
+  for(int i=0;i<rock.size();i++){
+  	rock.get(i).move();
+  	rock.get(i).show();
+	}
+  for(int ii=0;i<dots.size();i++){dots.get(i).show();}
 }
 
 public void keyPressed(){
