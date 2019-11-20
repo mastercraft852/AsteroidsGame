@@ -1,10 +1,10 @@
 class Asteroid extends Floater {
-	int rotSpeed;
+	protected int rotSpeed;
 	public Asteroid(){
 		corners = 3;
 		xCorners = new int[] {-10,0,10};
 		yCorners = new int[] {10,-10,0};
-		rotSpeed = (int)(Math.random()*721)-360;
+		rotSpeed = 0;
     	myCenterX = (Math.random()*width);
     	myCenterY = (Math.random()*height);
     	myColor = color(165,42,42);
@@ -15,4 +15,6 @@ class Asteroid extends Floater {
 		turn(rotSpeed);
 		super.move();
 	}
+	public void setRotSpeed(int s){rotSpeed=s;}
+	public int getRotSpeed(){return rotSpeed;}
 }

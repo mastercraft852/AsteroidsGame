@@ -9,19 +9,20 @@ public void setup()
   background(0);
   ship = new Spaceship();
   for(int i=0;i<(int)(Math.random()*10)+6;i++){rock.add(new Asteroid());}
-  for(int ii=0;i<(int)(Math.random()*20)+9;i++){dots.add(new Star());}
+  for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
 }
 public void draw() 
 {
   //your code here
   background(0);
-  ship.move();
-  ship.show();
+  for(int ii=0;ii<dots.size();ii++){dots.get(ii).show();}
   for(int i=0;i<rock.size();i++){
-  	rock.get(i).move();
+    rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
+    rock.get(i).move();
   	rock.get(i).show();
 	}
-  for(int ii=0;i<dots.size();i++){dots.get(i).show();}
+  ship.move();
+  ship.show();
 }
 
 public void keyPressed(){
@@ -50,5 +51,17 @@ public void keyPressed(){
 		}
 		ship.setDirX(0);
 		ship.setDirY(0);
+	}
+	if(key=='B'){
+		ship.setCenterX(width/2);
+		ship.setCenterY(height/2);
+		ship.setDirX(0);
+		ship.setDirY(0);
+		ship.setPointDir(90);
+		rock.clear();
+		dots.clear();
+		for(int i=0;i<(int)(Math.random()*10)+6;i++){rock.add(new Asteroid());}
+  	for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
+  	redraw();
 	}
 }
