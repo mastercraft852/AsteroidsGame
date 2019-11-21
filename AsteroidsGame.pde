@@ -8,7 +8,10 @@ public void setup()
   size(500,500);
   background(0);
   ship = new Spaceship();
-  for(int i=0;i<(int)(Math.random()*10)+6;i++){rock.add(new Asteroid());}
+  for(int i=0;i<(int)(Math.random()*10)+6;i++){
+    rock.add(new Asteroid());
+    rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
+  }
   for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
 }
 public void draw() 
@@ -17,7 +20,6 @@ public void draw()
   background(0);
   for(int ii=0;ii<dots.size();ii++){dots.get(ii).show();}
   for(int i=0;i<rock.size();i++){
-    rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
     rock.get(i).move();
   	rock.get(i).show();
 	}
@@ -60,7 +62,10 @@ public void keyPressed(){
 		ship.setPointDir(90);
 		rock.clear();
 		dots.clear();
-		for(int i=0;i<(int)(Math.random()*10)+6;i++){rock.add(new Asteroid());}
+		for(int i=0;i<(int)(Math.random()*10)+6;i++){
+      rock.add(new Asteroid());
+      rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
+    }
   	for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
   	redraw();
 	}
