@@ -2,7 +2,7 @@
 Spaceship ship;
 ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
 ArrayList <Star> dots = new ArrayList <Star>();
-int i = 0;
+int n = 0;
 public void setup() 
 {
   size(500,500);
@@ -41,15 +41,15 @@ public void keyPressed(){
 		ship.turn(5);
 	}
 	if(key=='K'){
-		if(i%2==0){
+		if(n%2==0){
 			ship.setCenterX(69);
 			ship.setCenterY(420);
-			i++;
+			n++;
 		}
 		else{
 			ship.setCenterX(420);
 			ship.setCenterY(69);
-			i++;
+			n++;
 		}
 		ship.setDirX(0);
 		ship.setDirY(0);
