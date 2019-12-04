@@ -16,5 +16,16 @@ class Asteroid extends Floater {
 		super.move();
 	}
 	public void setRotSpeed(int s){rotSpeed=s;}
-	public int getRotSpeed(){return rotSpeed;}
+	public void setCenterX(double x){myCenterX=x;}
+    public void setCenterY(double y){myCenterY=y;}
+    public void setDirX(double x){myDirectionX=x;}
+    public void setDirY(double y){myDirectionY=y;}
+    public void setPointDir(double n){myPointDirection=n;}
+    public double getCenterX(){return myCenterX;}
+    public double getCenterY(){return myCenterY;}
+    public double getDirX(){return myDirectionX;}
+    public double getDirY(){return myDirectionY;}
+    public double getPointDir(){return myPointDirection;}
+    public int getRotSpeed(){return rotSpeed;}
+    
 }

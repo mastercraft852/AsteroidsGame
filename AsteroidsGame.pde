@@ -22,7 +22,11 @@ public void draw()
   for(int i=0;i<rock.size();i++){
     rock.get(i).move();
   	rock.get(i).show();
-	}
+	  if(dist(rock.get(i).getCenterX(),rock.get(i).getCenterY(),ship.getCenterX(),ship.getCenterY())<15){
+      reset();
+    }
+  }
+
   ship.move();
   ship.show();
 }
@@ -55,18 +59,21 @@ public void keyPressed(){
 		ship.setDirY(0);
 	}
 	if(key=='B'){
-		ship.setCenterX(width/2);
-		ship.setCenterY(height/2);
-		ship.setDirX(0);
-		ship.setDirY(0);
-		ship.setPointDir(90);
-		rock.clear();
-		dots.clear();
-		for(int i=0;i<(int)(Math.random()*10)+6;i++){
+    reset();
+	}
+  }
+  public void reset(){
+    ship.setCenterX(width/2);
+    ship.setCenterY(height/2);
+    ship.setDirX(0);
+    ship.setDirY(0);
+    ship.setPointDir(90);
+    rock.clear();
+    dots.clear();
+    for(int i=0;i<(int)(Math.random()*10)+6;i++){
       rock.add(new Asteroid());
       rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
     }
-  	for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
-  	redraw();
-	}
+    for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
+    redraw();
 }
