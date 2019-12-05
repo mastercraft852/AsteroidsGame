@@ -22,8 +22,8 @@ public void draw()
   for(int i=0;i<rock.size();i++){
     rock.get(i).move();
   	rock.get(i).show();
-	  if(dist(rock.get(i).getCenterX(),rock.get(i).getCenterY(),ship.getCenterX(),ship.getCenterY())<15){
-      reset();
+	  if(dist((float)(rock.get(i).getCenterX()),(float)(rock.get(i).getCenterY()),(float)(ship.getCenterX()),(float)(ship.getCenterY()))<15){
+      rock.remove(i);
     }
   }
 
