@@ -21,11 +21,10 @@ class Asteroid extends Floater {
     public void setDirX(double x){myDirectionX=x;}
     public void setDirY(double y){myDirectionY=y;}
     public void setPointDir(double n){myPointDirection=n;}
+    public int getRotSpeed(){return rotSpeed;}
     public double getCenterX(){return myCenterX;}
     public double getCenterY(){return myCenterY;}
     public double getDirX(){return myDirectionX;}
     public double getDirY(){return myDirectionY;}
-    public double getPointDir(){return myPointDirection;}
-    public int getRotSpeed(){return rotSpeed;}
-    
+    public double getPointDir(){return myPointDirection;}   
 }

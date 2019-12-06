@@ -2,6 +2,7 @@
 Spaceship ship;
 ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
 ArrayList <Star> dots = new ArrayList <Star>();
+ArrayList <Bullet> hurt = new ArrayList<Bullet>();
 int n = 0;
 public void setup() 
 {
@@ -13,6 +14,7 @@ public void setup()
     rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
   }
   for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
+    hurt.add(new Bullet(ship));
 }
 public void draw() 
 {
@@ -25,8 +27,17 @@ public void draw()
 	  if(dist((float)(rock.get(i).getCenterX()),(float)(rock.get(i).getCenterY()),(float)(ship.getCenterX()),(float)(ship.getCenterY()))<15){
       rock.remove(i);
     }
+  for(int iii=0;iii<hurt.size();iii++){
+    hurt.get(i).move();
+    hurt.get(i).show();
+    for(int iiii=0;iiii<rock.size();iiii++){
+      if(dist((float)(rock.get(iiii).getCenterX()),(float)(rock.get(iiii).getCenterY()),
+        (float)(hurt.getCenterX()),(float)(hurt.getCenterY()))<15){
+      rock.remove(iiii);
+    }
+    }
   }
-
+}
   ship.move();
   ship.show();
 }
@@ -62,18 +73,21 @@ public void keyPressed(){
     reset();
 	}
   }
-  public void reset(){
-    ship.setCenterX(width/2);
-    ship.setCenterY(height/2);
-    ship.setDirX(0);
-    ship.setDirY(0);
-    ship.setPointDir(90);
-    rock.clear();
-    dots.clear();
-    for(int i=0;i<(int)(Math.random()*10)+6;i++){
-      rock.add(new Asteroid());
-      rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
-    }
-    for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
-    redraw();
+public void reset(){
+  ship.setCenterX(width/2);
+  ship.setCenterY(height/2);
+  ship.setDirX(0);
+  ship.setDirY(0);
+  ship.setPointDir(90);
+  rock.clear();
+  dots.clear();
+  for(int i=0;i<(int)(Math.random()*10)+6;i++){
+    rock.add(new Asteroid());
+    rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
+  }
+  for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
+  redraw();
+}
+public void keyReleased(){
+  if(key==' '){hurt.add(new Bullet());}
 }
