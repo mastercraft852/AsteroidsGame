@@ -28,12 +28,14 @@ public void draw()
       rock.remove(i);
     }
   for(int iii=0;iii<hurt.size();iii++){
-    hurt.get(i).move();
-    hurt.get(i).show();
+    hurt.get(iii).move();
+    hurt.get(iii).show();
     for(int iiii=0;iiii<rock.size();iiii++){
       if(dist((float)(rock.get(iiii).getCenterX()),(float)(rock.get(iiii).getCenterY()),
-        (float)(hurt.getCenterX()),(float)(hurt.getCenterY()))<15){
+        (float)(hurt.get(iii).getCenterX()),(float)(hurt.get(iii).getCenterY()))<15){
       rock.remove(iiii);
+      hurt.remove(iii);
+      break;
     }
     }
   }
@@ -89,5 +91,5 @@ public void reset(){
   redraw();
 }
 public void keyReleased(){
-  if(key==' '){hurt.add(new Bullet());}
+  if(key==' '){hurt.add(new Bullet(ship));}
 }
