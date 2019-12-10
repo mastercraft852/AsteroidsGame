@@ -14,7 +14,7 @@ public void setup()
     rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
   }
   for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
-    hurt.add(new Bullet(ship));
+    
 }
 public void draw() 
 {
@@ -83,6 +83,7 @@ public void reset(){
   ship.setPointDir(90);
   rock.clear();
   dots.clear();
+  hurt.clear();
   for(int i=0;i<(int)(Math.random()*10)+6;i++){
     rock.add(new Asteroid());
     rock.get(i).setRotSpeed((int)(Math.random()*721)-360);

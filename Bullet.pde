@@ -1,11 +1,10 @@
-class Bullet extends Spaceship {
+class Bullet extends Floater {
 	public Bullet(Spaceship ship){
 		myCenterX = ship.getCenterX();
 		myCenterY = ship.getCenterY();
 		myPointDirection = ship.getPointDir();
 		double dRadians =myPointDirection*(Math.PI/180);
-		myDirectionX = 5 * Math.cos(dRadians) + ship.getDirX();
-		myDirectionY = 5 * Math.sin(dRadians) + ship.getDirY();
+		accelerate(ship.getSpeed()+1);
 	}
 
 	public void show(){
