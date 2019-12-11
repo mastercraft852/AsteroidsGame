@@ -4,7 +4,7 @@ class Bullet extends Floater {
 		myCenterY = ship.getCenterY();
 		myPointDirection = ship.getPointDir();
 		double dRadians =myPointDirection*(Math.PI/180);
-		accelerate(ship.getSpeed()+1);
+		accelerate(ship.getSpeed()+2);
 	}
 
 	public void show(){

@@ -4,12 +4,13 @@ ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
 ArrayList <Star> dots = new ArrayList <Star>();
 ArrayList <Bullet> hurt = new ArrayList<Bullet>();
 int n = 0;
+// int counter = 0;
 public void setup() 
 {
   size(500,500);
   background(0);
   ship = new Spaceship();
-  for(int i=0;i<(int)(Math.random()*10)+6;i++){
+  for(int i=0;i<5;i++){
     rock.add(new Asteroid());
     rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
   }
@@ -19,6 +20,7 @@ public void setup()
 public void draw() 
 {
   //your code here
+  // counter++;
   background(0);
   for(int ii=0;ii<dots.size();ii++){dots.get(ii).show();}
   for(int i=0;i<rock.size();i++){
@@ -27,21 +29,27 @@ public void draw()
 	  if(dist((float)(rock.get(i).getCenterX()),(float)(rock.get(i).getCenterY()),(float)(ship.getCenterX()),(float)(ship.getCenterY()))<15){
       rock.remove(i);
     }
-  for(int iii=0;iii<hurt.size();iii++){
-    hurt.get(iii).move();
-    hurt.get(iii).show();
-    for(int iiii=0;iiii<rock.size();iiii++){
-      if(dist((float)(rock.get(iiii).getCenterX()),(float)(rock.get(iiii).getCenterY()),
-        (float)(hurt.get(iii).getCenterX()),(float)(hurt.get(iii).getCenterY()))<15){
-      rock.remove(iiii);
-      hurt.remove(iii);
-      break;
-    }
-    }
   }
+  for(int v=0;v<hurt.size();v++){
+    hurt.get(v).move();
+    hurt.get(v).show();
+  }
+  for(int iv=0;iv<rock.size();iv++){
+    for(int iii=0;iii<hurt.size();iii++){
+    if(dist((float)(rock.get(iv).getCenterX()),(float)(rock.get(iv).getCenterY()),(float)(hurt.get(iii).getCenterX()),(float)(hurt.get(iii).getCenterY()))<15){
+    rock.remove(iv);
+    hurt.remove(iii);
+    break;
+  }
+  }
+  // if(counter%100==0){
+  //   rock.add(new Asteroid());
+  // }
+
 }
   ship.move();
   ship.show();
+  System.out.println(rock.size());
 }
 
 public void keyPressed(){
