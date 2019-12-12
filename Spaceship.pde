@@ -3,7 +3,7 @@ class Spaceship extends Floater
     int speed;
     public Spaceship(){
     	corners = 3;
-    	xCorners = new int[]{-8,-8,0};
+    	xCorners = new int[]{-8,-8,15};
     	yCorners = new int[]{-8,8,0};
     	myCenterX = width/2;
     	myCenterY = height/2;

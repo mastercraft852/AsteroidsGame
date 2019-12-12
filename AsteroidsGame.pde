@@ -4,7 +4,7 @@ ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
 ArrayList <Star> dots = new ArrayList <Star>();
 ArrayList <Bullet> hurt = new ArrayList<Bullet>();
 int n = 0;
-// int counter = 0;
+int counter = 0;
 public void setup() 
 {
   size(500,500);
@@ -14,13 +14,13 @@ public void setup()
     rock.add(new Asteroid());
     rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
   }
-  for(int ii=0;ii<(int)(Math.random()*20)+9;ii++){dots.add(new Star());}
+  for(int ii=0;ii<(int)(Math.random()*30)+20;ii++){dots.add(new Star());}
     
 }
 public void draw() 
 {
   //your code here
-  // counter++;
+  counter++;
   background(0);
   for(int ii=0;ii<dots.size();ii++){dots.get(ii).show();}
   for(int i=0;i<rock.size();i++){
@@ -42,11 +42,12 @@ public void draw()
     break;
   }
   }
-  // if(counter%100==0){
-  //   rock.add(new Asteroid());
-  // }
+  
 
 }
+if(counter%100==0){
+    rock.add(new Asteroid());
+ }
   ship.move();
   ship.show();
   System.out.println(rock.size());
@@ -82,6 +83,9 @@ public void keyPressed(){
 	if(key=='B'){
     reset();
 	}
+  if(key=='o'||key=='O'){
+    rock.add(new Asteroid());
+  }
   }
 public void reset(){
   ship.setCenterX(width/2);
