@@ -45,7 +45,7 @@ public void draw()
   
 
 }
-if(counter%100==0){
+if(counter%200==0){
     rock.add(new Asteroid());
  }
   ship.move();
