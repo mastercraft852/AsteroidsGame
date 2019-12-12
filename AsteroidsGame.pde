@@ -50,7 +50,7 @@ if(counter%200==0){
  }
   ship.move();
   ship.show();
-  System.out.println(rock.size());
+  // System.out.println(rock.size());
 }
 
 public void keyPressed(){
