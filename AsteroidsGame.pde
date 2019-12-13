@@ -7,14 +7,14 @@ int n = 0;
 int counter = 0;
 public void setup() 
 {
-  size(500,500);
+  size(1000,1000);
   background(0);
   ship = new Spaceship();
-  for(int i=0;i<5;i++){
+  for(int i=0;i<(int)(Math.random()*10)+7;i++){
     rock.add(new Asteroid());
     rock.get(i).setRotSpeed((int)(Math.random()*721)-360);
   }
-  for(int ii=0;ii<(int)(Math.random()*30)+20;ii++){dots.add(new Star());}
+  for(int ii=0;ii<(int)(Math.random()*40)+30;ii++){dots.add(new Star());}
     
 }
 public void draw() 
